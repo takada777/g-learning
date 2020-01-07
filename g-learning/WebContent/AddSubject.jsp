@@ -101,7 +101,7 @@ socket.on("sql3", function(rows){addSql3(rows);});
 
 socket.on("disconnect", function(){});
 function start(room){
-	socket.emit("connected", room);
+	socket.emit("connected", room);f
 }
 
 function sql(room){
