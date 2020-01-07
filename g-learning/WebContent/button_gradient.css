@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.gradientButton{
+  border:1px solid #000080;
+  width:150px;
+  height:28px;
+  background:linear-gradient(to bottom, #000080,#b0c4de);
+}
