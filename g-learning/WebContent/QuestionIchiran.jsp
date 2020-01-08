@@ -137,6 +137,8 @@ table tr:last-child td:last-child {
 			for (var i = 0; i < rows.length; i++) {
 				// test2=rows[i].subject_id;
 				table += '<tr><td>' + rows[i].question_name + '</td>' + '<td><div><input type="button"  id="button" value="編集" onclick="change()"</td>';
+				 question_id=rows[i].question_id;
+
 				// 	$("#sql3").append('科目ID ' + rows[i].subject_id );
 				//var test=document.rows[i].subject_id;
 				//	$("#sql3").append('科目名 ' + rows[i].subject_name + '<br>');
@@ -157,7 +159,10 @@ table tr:last-child td:last-child {
 
 		socket.emit("subject");
 		function change() {
-		      document.location.href ="QuestionEdit.jsp";
+
+			localStorage.setItem('question_id',question_id);
+			document.location.href ="QuestionEdit.jsp";
+
 		    }
 	</script>
 

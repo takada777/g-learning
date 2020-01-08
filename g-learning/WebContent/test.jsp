@@ -24,7 +24,7 @@ a {
 
 .top-wrapper {
   padding: 180px 0 100px 0;
-  background-image: url("a.jpg");
+  background-image: url("1.jpg");
   background-size: cover;
   color: white;
   text-align: center;
@@ -80,7 +80,7 @@ a {
 
   </style>
     <meta charset="utf-8">
-    <title>Progate</title>
+    <title>チトる</title>
     <link rel="stylesheet" href="stylesheet.css">
     <!-- ここでFont Awesomeを読み込みましょう -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
