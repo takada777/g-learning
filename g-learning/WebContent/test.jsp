@@ -24,7 +24,7 @@ a {
 
 .top-wrapper {
   padding: 180px 0 100px 0;
-  background-image: url("1.jpg");
+  background-image: url("a.jpg");
   background-size: cover;
   color: white;
   text-align: center;

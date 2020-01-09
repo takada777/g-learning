@@ -60,7 +60,7 @@ table tr:last-child td:last-child {
 </style>
 
 </head>
- <class="drawer drawer--right">
+ <body class="drawer drawer--right">
 	<header role="banner">
 		<button type="button" class="drawer-toggle drawer-hamburger">
 			<span class="sr-only">toggle navigation</span>
@@ -69,11 +69,13 @@ table tr:last-child td:last-child {
 		<nav class="drawer-nav" role="navigation">
 			<ul class="drawer-menu">
 				<li><a class="drawer-brand" href="#">メニュー</a></li>
-				<li><a class="drawer-menu-item" href="Oshirase.jsp">おしらせ</a></li>
-				<li><a class="drawer-menu-item" href="Mondaiichiran.jsp">問題一覧</a></li>
-				<li><a class="drawer-menu-item" href="Homework.jsp">宿題</a></li>
-				<li><a class="drawer-menu-item" href="Groupwork.jsp">グループワーク</a></li>
-				<li><a class="drawer-menu-item" href="User.jsp">ユーザ情報</a></li>
+				<li><a class="drawer-menu-item" href="AdminMain.jsp">クラス</a></li>
+				<li><a class="drawer-menu-item" href="Subject.jsp">科目</a></li>
+				<li><a class="drawer-menu-item" href="AddQuestion.jsp">問題追加</a></li>
+				<li><a class="drawer-menu-item" href="GiveHomework.jsp">宿題を出す</a></li>
+				<li><a class="drawer-menu-item" href="#">宿題提出状況</a></li>
+				<li><a class="drawer-menu-item" href="AdminRegister.jsp">管理者登録</a></li>
+				<li><a class="drawer-menu-item" href="#">アカウント</a></li>
 				<li><a class="drawer-menu-item" href="Login.jsp">ログアウト</a></li>
 			</ul>
 		</nav>
