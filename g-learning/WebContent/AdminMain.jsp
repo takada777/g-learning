@@ -92,6 +92,7 @@ table tr:last-child td:last-child {
 <div id="student">
 
 </div>
+
 	<script>
 
 		var socket = io.connect("http://10.16.152.10:8081/subject");
@@ -108,54 +109,39 @@ table tr:last-child td:last-child {
 		$(document).ready(function() {
 			$('.drawer').drawer();
 		});
-		//$('select').change(function() {
-		//	  if ($(this).val() != '') {
-		//	    window.location.href = $(this).val();
-		//	  }
-		//});function addSql3(rows){
+
+		socket.emit("classselect");
+
 		function classselect(rows) {
 			$("#classselect").html("");
-			//console.log(rows.length);
-			//var table = '<span id="span3"></span><table border="1">'+'<tr><th>科目ID</th><th>科目名</th><th></th></tr>';
-			var test = '<select id="class" name="pulldown1" class="validate[required]">'
+			var test = '<select id="class" name="pulldown1" class="test9">'
 					+ '<option value="0">クラスを選んでください</option>';
 			for (var i = 0; i < rows.length; i++) {
 				test += '<option id="1" value='+rows[i].class_id+'>'
 						+ rows[i].class_name + '</option>';
 			}
 			$("#classselect").append(test);
-			//table += '</table>';
-			//	$("#classselect").append(table);
-			//canvas.renderAll();
 		};
-		socket.emit("classselect");
+
 		function student(rows) {
 			$("#student").html("");
 			var table = '<span id="span2"></span><table border="1">'
 					+ '<tr><th>生徒ID</th><th>生徒名</th></tr>';
-			//console.log(table);
 			for (var i = 0; i < rows.length; i++) {
-				// test2=rows[i].subject_id;
 				table += '<tr><td>' + rows[i].student_id + '</td>' + '<td>'
 						+ rows[i].student_name + '</td>';
-				// 	$("#sql3").append('科目ID ' + rows[i].subject_id );
-				//var test=document.rows[i].subject_id;
-				//	$("#sql3").append('科目名 ' + rows[i].subject_name + '<br>');
-				//console.log(rows.length);
+
 			}
 			table += '</table>';
 			$("#student").append(table);
-
-			$('select').change(function() {
-				var val = $(this).val();
-				//console.log(val);
-				console.log(val);
-				socket.emit("student", val);
-			});
-		//	canvas.renderAll();
 		};
 
-		socket.emit("student");
+
+		$(document).on('change', '.test9', function() {
+			var val = $(this).val();
+			console.log(val);
+			socket.emit("student", val);
+		});
 	</script>
 
 
