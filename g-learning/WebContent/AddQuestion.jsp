@@ -67,7 +67,7 @@ socket.on("addquestion", function(sublect_id,question_name,question_text,questio
 var kazu = 0;
 y=0;
 z=0;
-	$('select')
+	$('#kazu')
 			.change(
 					function() {
 						var test2;
@@ -82,13 +82,13 @@ z=0;
 
 							//	var test2='<input type="text" placeholder="問題名" name="question_name" id="question_name" class="validate[required,custom[number]]"/><br><br>';
 							for (var x = 0; x < val - kazu; x++) {
-								while(y<val){
+
 								 y+=1;
-								test2 = '<p>'+y+'</p>'+'<input type="text" placeholder="問題文" name="sublectid" class="validate[required,custom[number]]"/><br><br>'
-										+ '<input type="text" placeholder="解答" name="sublectid"  class="validate[required,custom[number]]"/><br><br>'
+								test2 = '<p>'+y+'</p>'+'<input type="text" placeholder="問題文" name="sublectid"  id="question_text"class="validate[required,custom[number]]"/><br><br>'
+										+ '<input type="text" placeholder="解答" name="sublectid" id="question_answer" class="validate[required,custom[number]]"/><br><br>'
 								$("#aaa").append(test2);
-								}
-								//console.log(val + "val");
+
+								console.log(x);
 							//	console.log(kazu + "kazu");
 
 
@@ -102,8 +102,8 @@ z=0;
 								while(z<val){
 								z+=1;
 
-								test2 = '<p>'+z+'</p>'+'<input type="text" placeholder="問題文" name="sublectid"  class="validate[required,custom[number]]"/><br><br>'
-										+ '<input type="text" placeholder="解答" name="sublectid"  class="validate[required,custom[number]]"/><br><br>'
+								test2 = '<p>'+z+'</p>'+'<input type="text" placeholder="問題文" name="sublectid" id="question_text" class="validate[required,custom[number]]"/><br><br>'
+										+ '<input type="text" placeholder="解答" name="sublectid" id="question_answer" class="validate[required,custom[number]]"/><br><br>'
 								$("#aaa").append(test2);
 								}
 								//console.log("tink");
@@ -115,7 +115,7 @@ z=0;
 						}
 
 
-						y=0;
+						//y=0;
 						z=0;
 						kazu = Number(val);
 					});
@@ -123,7 +123,7 @@ z=0;
 		$("#sql3").html("");
 		//console.log(rows.length);
 		//var table = '<span id="span3"></span><table border="1">'+'<tr><th>科目ID</th><th>科目名</th><th></th></tr>';
-		var test = '<select id="select" name="select" class="validate[required]">'
+		var test = '<select id="select2" name="select2" class="validate[required]">'
 				+ '<option value="0">クラスを選んでください</option>';
 		for (var i = 0; i < rows.length; i++) {
 			test += '<option  value='+rows[i].subject_id+'>'
@@ -140,21 +140,41 @@ z=0;
 	socket.emit("sql3");
 	function addquestion() {
 		// value値を取得する
-		var subject_id = document.getElementById('select').value;
-		var question_name = document.getElementById('question_name').value;
-		var question_text = document.getElementById('question_text').value;
-		var question_answer = document.getElementById('question_answer').value;
+		 array=[];
+		 var subject_id = document.getElementById('select2').value;
+			var question_name = document.getElementById('question_name').value;
+			var question_text = document.getElementById('question_text').value;
+			var question_answer = document.getElementById('question_answer').value;
+		 for (var i = 0; i <question_name.length; i++){
+
+				array.push(question_name[i],question_text[i]);
+				console.log(array);
+
+				for(var j=0;j<array.length;j++){
+
+
+
+
+
+
+
+				 console.log(array[i]);
+				socket.emit("addquestion",subject_id, question_name, question_text,question_answer);
+
+			 }
+		//	location.reload();
+
 		console.log(subject_id);
-		console.log(question_name);
+	console.log(question_name);
 		console.log(question_text);
 		console.log(question_answer);
 
 		// alert("value値は「" + subject_id + "」です");
 
-		socket.emit("addquestion", subject_id, question_name, question_text,
-				question_answer);
-		location.reload();
-
+	///	socket.emit("addquestion",subject_id, question_name, question_text,
+		//		question_answer);
+		//location.reload();
+		 }
 	};
 </script>
 </body>

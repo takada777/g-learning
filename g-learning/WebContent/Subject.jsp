@@ -197,6 +197,7 @@ function deletesubject(){
 			array.push(subject_id3[i].value);
 
 
+
 			for(var j=0;j<array.length;j++){
 
 
@@ -205,11 +206,11 @@ function deletesubject(){
 
 
 		 subject_id2=parseInt(array[j]);
-			// console.log(array[2]);
+			 console.log(subject_id3.length);
 			 socket.emit("deletesubject",subject_id2);
 			}
 		 }
-		location.reload();
+		//location.reload();
 	 }
 	// document.getElementById("span2").textContent = idarray;
 	//socket.emit("deletesubject",subject_id2);
